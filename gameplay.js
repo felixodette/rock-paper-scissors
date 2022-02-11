@@ -1,4 +1,5 @@
 let choice = ['Rock', 'Paper', 'Scissors'];
+const prompt = require('prompt-sync')();
 
 function computerPlay() {
     let hand = choice[Math.floor(Math.random() * choice.length)];
@@ -26,9 +27,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const computerSelection = computerPlay();
-const playerSelection = 'rock';
-const result = playRound(playerSelection, computerSelection)
+// const playerSelection = 'rock';
 
-console.log(result)
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Rock Paper of Scissors?");
+        const computerSelection = computerPlay()
+        let result = playRound(playerSelection, computerSelection)
+        console.log(result)
+    }
+}
 
+game()
